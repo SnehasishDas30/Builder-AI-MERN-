@@ -185,30 +185,15 @@ The AI can then modify the generated project according to the new instructions.
 
 ### Home Page
 
-*Add your home-page screenshot here.*
-
-```text
 ![Builder AI Home Page](./screenshots/home.png)
-```
 
 ### AI Website Builder
 
-*Add your builder screenshot here.*
-
-```text
 ![Builder AI Builder](./screenshots/builder.png)
-```
 
 ### Live Preview
 
-*Add your live-preview screenshot here.*
-
-```text
 ![Builder AI Preview](./screenshots/preview.png)
-```
-
-> Create a `screenshots` folder in the root directory and place your screenshots there.
-
 ---
 
 ## ⚙️ Installation
