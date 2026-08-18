@@ -2,6 +2,7 @@ import { Project } from "../models/Project.js";
 import crypto from "crypto";
 import { generateProject } from "../services/ai.js";
 import { validateProjectFiles } from "../services/codeValidator.js";
+import { waitUntil } from "@vercel/functions";
 
 function hashContent(content) {
     return crypto.createHash("md5").update(content).digest("hex").slice(0,
@@ -44,10 +45,15 @@ export async function createProject(req, res) {
         error: null,
     })
 
-    // Start background generation
+   // Start background generation
+waitUntil(
     runBackgroundGeneration(project._id.toString(), prompt).catch((err) => {
-        console.error(`[Background AI] Fatal generation error for project ${project._id}:`, err)
+        console.error(
+            `[Background AI] Fatal generation error for project ${project._id}:`,
+            err
+        );
     })
+);
 
     res.status(201).json({
         _id: project._id,
